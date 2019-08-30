@@ -1,0 +1,8 @@
+kr\co\uclick\controller\SampleController.class
+kr\co\uclick\repository\SampleRepository.class
+kr\co\uclick\entity\QSample.class
+kr\co\uclick\service\SampleService.class
+kr\co\uclick\configuration\MyWebApplicationInitializer.class
+kr\co\uclick\entity\Sample.class
+kr\co\uclick\configuration\CustomPhysicalNamingStrategyStandardImpl.class
+kr\co\uclick\configuration\SpringConfiguration.class

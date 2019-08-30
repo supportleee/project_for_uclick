@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="60 seconds">
+	<property name="LOG_PATTERN"
+		value="[%-5level][NAME][%d{yyyy-MM-dd HH:mm:ss}] \\(%F:%L\\) %M - %msg%n" />
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>${LOG_PATTERN}</pattern>
+		</layout>
+	</appender>
+
+	<logger name="kr.co.uclick" level="TRACE">
+	</logger>
+
+	<logger name="org.hibernate.type" level="TRACE">
+	</logger>
+
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>

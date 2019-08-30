@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="1" failures="0" name="kr.co.uclick.configuration.SpringConfigurationTest" time="0.006" errors="1" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_171\jre\bin"/>
+    <property name="java.vm.version" value="25.171-b11"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="D:\cafe\workspace\politech\polytech"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="KR"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\cafe\workspace\politech\polytech"/>
+    <property name="java.runtime.version" value="1.8.0_171-b11"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_171\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\pksup\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="D:\cafe\workspace\politech\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf9038001375943699616.tmp"/>
+    <property name="sun.jnu.encoding" value="MS949"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_171\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jdk1.8.0_171/bin/../jre/bin/server;C:/Program Files/Java/jdk1.8.0_171/bin/../jre/bin;C:/Program Files/Java/jdk1.8.0_171/bin/../jre/lib/amd64;C:\Program Files\Java\jdk1.8.0_171\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\PuTTY\;C:\Users\pksup\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Nmap;D:\eclipse\eclipse-jee-oxygen-3a-win32-x86_64\eclipse;;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\pksup"/>
+    <property name="user.timezone" value="Asia/Seoul"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="MS949"/>
+    <property name="user.name" value="pksup"/>
+    <property name="java.class.path" value="D:\eclipse\eclipse-jee-oxygen-3a-win32-x86_64\eclipse\plugins\org.eclipse.m2e.maven.runtime_1.8.3.20180227-2135\jars\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_171\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B -s D:\maven\settings.xml clean install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="ko"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_171"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_171\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_171\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_171\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_171\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_171\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_171\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_171\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_171\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_171\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="D:\cafe\workspace\politech\polytech\EMBEDDED"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="kr.co.uclick.configuration.SpringConfigurationTest" name="test" time="0.006">
+    <error message="Failed to load ApplicationContext" type="java.lang.IllegalStateException">java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:107)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:242)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;resourceHandlerMapping&apos; defined in org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method &apos;resourceHandlerMapping&apos; threw exception; nested exception is java.lang.IllegalStateException: No ServletContext set
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:587)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1250)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1099)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:758)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:128)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:109)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:246)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	... 31 more
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method &apos;resourceHandlerMapping&apos; threw exception; nested exception is java.lang.IllegalStateException: No ServletContext set
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:579)
+	... 48 more
+Caused by: java.lang.IllegalStateException: No ServletContext set
+	at org.springframework.util.Assert.state(Assert.java:73)
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.resourceHandlerMapping(WebMvcConfigurationSupport.java:485)
+	at org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration$$EnhancerBySpringCGLIB$$2e457d5a.CGLIB$resourceHandlerMapping$27(&lt;generated&gt;)
+	at org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration$$EnhancerBySpringCGLIB$$2e457d5a$$FastClassBySpringCGLIB$$2afd9e75.invoke(&lt;generated&gt;)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:361)
+	at org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration$$EnhancerBySpringCGLIB$$2e457d5a.resourceHandlerMapping(&lt;generated&gt;)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 49 more
+</error>
+    <system-out>16:42:29,683 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]
+16:42:29,684 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+16:42:29,684 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/D:/cafe/workspace/politech/polytech/target/classes/logback.xml]
+16:42:29,742 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+16:42:29,750 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - Will scan for changes in [file:/D:/cafe/workspace/politech/polytech/target/classes/logback.xml] 
+16:42:29,750 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - Setting ReconfigureOnChangeTask scanning period to 1 minutes
+16:42:29,753 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+16:42:29,756 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+16:42:29,810 |-WARN in ch.qos.logback.core.ConsoleAppender[STDOUT] - This appender no longer admits a layout as a sub-component, set an encoder instead.
+16:42:29,810 |-WARN in ch.qos.logback.core.ConsoleAppender[STDOUT] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
+16:42:29,810 |-WARN in ch.qos.logback.core.ConsoleAppender[STDOUT] - See also http://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
+16:42:29,811 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [kr.co.uclick] to TRACE
+16:42:29,811 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.type] to TRACE
+16:42:29,811 |-INFO in ch.qos.logback.classic.joran.action.LevelAction - ROOT level set to INFO
+16:42:29,811 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+16:42:29,812 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+16:42:29,812 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@4566e5bd - Registering current configuration as safe fallback point
+
+[INFO ][NAME][2018-08-08 16:42:29] (AbstractTestContextBootstrapper.java:257) getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][NAME][2018-08-08 16:42:29] (AbstractTestContextBootstrapper.java:184) getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6591f517, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@345965f2, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@429bd883, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4d49af10, org.springframework.test.context.transaction.TransactionalTestExecutionListener@279ad2e3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@58134517]
+[INFO ][NAME][2018-08-08 16:42:30] (AbstractApplicationContext.java:589) prepareRefresh - Refreshing org.springframework.context.support.GenericApplicationContext@5d740a0f: startup date [Wed Aug 08 16:42:30 KST 2018]; root of context hierarchy
+[INFO ][NAME][2018-08-08 16:42:30] (XmlBeanDefinitionReader.java:316) loadBeanDefinitions - Loading XML bean definitions from class path resource [applicationContext-ignite.xml]
+[INFO ][NAME][2018-08-08 16:42:30] (AutowiredAnnotationBeanPostProcessor.java:154) &lt;init&gt; - JSR-330 &apos;javax.inject.Inject&apos; annotation found and supported for autowiring
+[INFO ][NAME][2018-08-08 16:42:30] (PostProcessorRegistrationDelegate.java:328) postProcessAfterInitialization - Bean &apos;springConfiguration&apos; of type [kr.co.uclick.configuration.SpringConfiguration$$EnhancerBySpringCGLIB$$e21933ba] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - 
+
+&gt;&gt;&gt;    __________  ________________  
+&gt;&gt;&gt;   /  _/ ___/ |/ /  _/_  __/ __/  
+&gt;&gt;&gt;  _/ // (7 7    // /  / / / _/    
+&gt;&gt;&gt; /___/\___/_/|_/___/ /_/ /___/   
+&gt;&gt;&gt; 
+&gt;&gt;&gt; ver. 2.3.1#20171031-sha1:d2c82c3c
+&gt;&gt;&gt; 2017 Copyright(C) Apache Software Foundation
+&gt;&gt;&gt; 
+&gt;&gt;&gt; Ignite documentation: http://ignite.apache.org
+
+[16:42:31]    __________  ________________ 
+[16:42:31]   /  _/ ___/ |/ /  _/_  __/ __/ 
+[16:42:31]  _/ // (7 7    // /  / / / _/   
+[16:42:31] /___/\___/_/|_/___/ /_/ /___/  
+[16:42:31] 
+[16:42:31] ver. 2.3.1#20171031-sha1:d2c82c3c
+[16:42:31] 2017 Copyright(C) Apache Software Foundation
+[16:42:31] 
+[16:42:31] Ignite documentation: http://ignite.apache.org
+[16:42:31] 
+[16:42:31] Quiet mode.
+[16:42:31]   ^-- To see **FULL** console log here add -DIGNITE_QUIET=false or &quot;-v&quot; to ignite.{sh|bat}
+[16:42:31] 
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - Config URL: n/a
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - Daemon mode: off
+[16:42:31] OS: Windows 10 10.0 amd64
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - OS: Windows 10 10.0 amd64
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - OS user: pksup
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - PID: 106824
+[16:42:31] VM information: Java(TM) SE Runtime Environment 1.8.0_171-b11 Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 25.171-b11
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - Language runtime: Java Platform API Specification ver. 1.8
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - VM information: Java(TM) SE Runtime Environment 1.8.0_171-b11 Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 25.171-b11
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - VM total memory: 3.5GB
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - Remote Management [restart: off, REST: on, JMX (remote: off)]
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - IGNITE_HOME=null
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - VM arguments: []
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - System cache&apos;s DataRegion size is configured to 40 MB. Use DataStorageConfiguration.systemCacheMemorySize property to change the setting.
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - Configured caches [in &apos;sysMemPlc&apos; dataRegion: [&apos;ignite-sys-cache&apos;], in &apos;default&apos; dataRegion: [&apos;org.hibernate.cache.spi.UpdateTimestampsCache&apos;, &apos;org.hibernate.cache.internal.StandardQueryCache&apos;]]
+[WARN ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:104) warning - This operating system has been tested less rigorously: Windows 10 10.0 amd64. Our team will appreciate the feedback if you experience any problems running ignite in this environment.
+[WARN ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:104) warning - Initial heap size is 256MB (should be no less than 512MB, use -Xms512m -Xmx512m).
+[16:42:31] Initial heap size is 256MB (should be no less than 512MB, use -Xms512m -Xmx512m).
+[16:42:31] Configured plugins:
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - Configured plugins:
+[16:42:31]   ^-- None
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info -   ^-- None
+[16:42:31] 
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - 
+[INFO ][NAME][2018-08-08 16:42:31] (Slf4jLogger.java:99) info - Successfully bound communication NIO server to TCP port [port=47100, locHost=0.0.0.0/0.0.0.0, selectorsCnt=4, selectorSpins=0, pairedConn=false]
+[WARN ][NAME][2018-08-08 16:42:36] (Slf4jLogger.java:104) warning - Message queue limit is set to 0 which may lead to potential OOMEs when running cache operations in FULL_ASYNC or PRIMARY_SYNC modes due to message queues growth on sender and receiver sides.
+[16:42:36] Message queue limit is set to 0 which may lead to potential OOMEs when running cache operations in FULL_ASYNC or PRIMARY_SYNC modes due to message queues growth on sender and receiver sides.
+[WARN ][NAME][2018-08-08 16:42:36] (Slf4jLogger.java:104) warning - Checkpoints are disabled (to enable configure any GridCheckpointSpi implementation)
+[WARN ][NAME][2018-08-08 16:42:36] (Slf4jLogger.java:104) warning - Collision resolution is disabled (all jobs will be activated upon arrival).
+[16:42:36] Security status [authentication=off, tls/ssl=off]
+[INFO ][NAME][2018-08-08 16:42:36] (Slf4jLogger.java:99) info - Security status [authentication=off, tls/ssl=off]
+[INFO ][NAME][2018-08-08 16:42:37] (Slf4jLogger.java:99) info - Client connector processor has started on TCP port 10800
+[INFO ][NAME][2018-08-08 16:42:37] (Slf4jLogger.java:99) info - Command protocol successfully started [name=TCP binary, host=0.0.0.0/0.0.0.0, port=11211]
+[INFO ][NAME][2018-08-08 16:42:38] (Slf4jLogger.java:99) info - Non-loopback local IPs: 169.254.171.221, 192.168.0.53, 192.168.137.1, fe80:0:0:0:48ac:4a58:5a02:60c8%wlan0, fe80:0:0:0:55f4:38aa:cd0:f015%eth7, fe80:0:0:0:7403:ebd3:1c5c:2624%wlan2, fe80:0:0:0:988a:e877:f779:9cda%wlan1, fe80:0:0:0:dda9:a22d:ea31:abdd%eth0, fe80:0:0:0:ddda:65ff:f538:c76c%eth6
+[INFO ][NAME][2018-08-08 16:42:38] (Slf4jLogger.java:99) info - Enabled local MACs: 02004C4F4F50, 34F64B9E55AC, 34F64B9E55AD, 34F64B9E55B0, 36F64B9E55AC, A44CC82AA1ED
+[INFO ][NAME][2018-08-08 16:42:38] (Slf4jLogger.java:99) info - Successfully bound to TCP port [port=13011, localHost=0.0.0.0/0.0.0.0, locNodeId=1b803e26-5b0e-4106-b16b-25e1b603b744]
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - Started exchange init [topVer=AffinityTopologyVersion [topVer=1, minorTopVer=0], crd=true, evt=NODE_JOINED, evtNode=1b803e26-5b0e-4106-b16b-25e1b603b744, customEvt=null, allowMerge=false]
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - Started cache [name=ignite-sys-cache, memoryPolicyName=sysMemPlc, mode=REPLICATED, atomicity=TRANSACTIONAL]
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - Started cache [name=org.hibernate.cache.spi.UpdateTimestampsCache, memoryPolicyName=default, mode=PARTITIONED, atomicity=ATOMIC]
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - Started cache [name=org.hibernate.cache.internal.StandardQueryCache, memoryPolicyName=default, mode=PARTITIONED, atomicity=ATOMIC]
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - Finished waiting for partition release future [topVer=AffinityTopologyVersion [topVer=1, minorTopVer=0], waitTime=0ms, futInfo=NA]
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - finishExchangeOnCoordinator [topVer=AffinityTopologyVersion [topVer=1, minorTopVer=0], resVer=AffinityTopologyVersion [topVer=1, minorTopVer=0]]
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - Finish exchange future [startVer=AffinityTopologyVersion [topVer=1, minorTopVer=0], resVer=AffinityTopologyVersion [topVer=1, minorTopVer=0], err=null]
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - Finished exchange init [topVer=AffinityTopologyVersion [topVer=1, minorTopVer=0], crd=true]
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - Skipping rebalancing (nothing scheduled) [top=AffinityTopologyVersion [topVer=1, minorTopVer=0], evt=NODE_JOINED, node=1b803e26-5b0e-4106-b16b-25e1b603b744]
+[16:42:39] Performance suggestions for grid &apos;cafe-grid&apos; (fix if possible)
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - Performance suggestions for grid &apos;cafe-grid&apos; (fix if possible)
+[16:42:39] To disable, set -DIGNITE_PERFORMANCE_SUGGESTIONS_DISABLED=true
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - To disable, set -DIGNITE_PERFORMANCE_SUGGESTIONS_DISABLED=true
+[16:42:39]   ^-- Enable G1 Garbage Collector (add &apos;-XX:+UseG1GC&apos; to JVM options)
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info -   ^-- Enable G1 Garbage Collector (add &apos;-XX:+UseG1GC&apos; to JVM options)
+[16:42:39]   ^-- Specify JVM heap max size (add &apos;-Xmx&lt;size&gt;[g|G|m|M|k|K]&apos; to JVM options)
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info -   ^-- Specify JVM heap max size (add &apos;-Xmx&lt;size&gt;[g|G|m|M|k|K]&apos; to JVM options)
+[16:42:39]   ^-- Set max direct memory size if getting &apos;OOME: Direct buffer memory&apos; (add &apos;-XX:MaxDirectMemorySize=&lt;size&gt;[g|G|m|M|k|K]&apos; to JVM options)
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info -   ^-- Set max direct memory size if getting &apos;OOME: Direct buffer memory&apos; (add &apos;-XX:MaxDirectMemorySize=&lt;size&gt;[g|G|m|M|k|K]&apos; to JVM options)
+[16:42:39]   ^-- Disable processing of calls to System.gc() (add &apos;-XX:+DisableExplicitGC&apos; to JVM options)
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info -   ^-- Disable processing of calls to System.gc() (add &apos;-XX:+DisableExplicitGC&apos; to JVM options)
+[16:42:39]   ^-- Disable fully synchronous writes (set &apos;writeSynchronizationMode&apos; to PRIMARY_SYNC or FULL_ASYNC)
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info -   ^-- Disable fully synchronous writes (set &apos;writeSynchronizationMode&apos; to PRIMARY_SYNC or FULL_ASYNC)
+[16:42:39]   ^-- Disable assertions (remove &apos;-ea&apos; from JVM options)
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info -   ^-- Disable assertions (remove &apos;-ea&apos; from JVM options)
+[16:42:39] Refer to this page for more performance suggestions: https://apacheignite.readme.io/docs/jvm-and-system-tuning
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - Refer to this page for more performance suggestions: https://apacheignite.readme.io/docs/jvm-and-system-tuning
+[16:42:39] 
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - 
+[16:42:39] To start Console Management &amp; Monitoring run ignitevisorcmd.{sh|bat}
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - To start Console Management &amp; Monitoring run ignitevisorcmd.{sh|bat}
+[16:42:39] 
+[16:42:39] Ignite node started OK (id=1b803e26, instance name=cafe-grid)
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - 
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - 
+
+&gt;&gt;&gt; +----------------------------------------------------------------------+
+&gt;&gt;&gt; Ignite ver. 2.3.1#20171031-sha1:d2c82c3cdcf61443ea645bccbe4999679a2c08d8
+&gt;&gt;&gt; +----------------------------------------------------------------------+
+&gt;&gt;&gt; OS name: Windows 10 10.0 amd64
+&gt;&gt;&gt; CPU(s): 8
+&gt;&gt;&gt; Heap: 3.5GB
+&gt;&gt;&gt; VM name: 106824@DESKTOP-523NGJ8
+&gt;&gt;&gt; Ignite instance name: cafe-grid
+&gt;&gt;&gt; Local node [ID=1B803E26-5B0E-4106-B16B-25E1B603B744, order=1, clientMode=false]
+&gt;&gt;&gt; Local node addresses: [DESKTOP-523NGJ8/0:0:0:0:0:0:0:1, DESKTOP-523NGJ8/127.0.0.1, /192.168.0.53, /192.168.137.1]
+&gt;&gt;&gt; Local ports: TCP:10800 TCP:11211 TCP:13011 TCP:47100 
+
+[16:42:39] Topology snapshot [ver=1, servers=1, clients=0, CPUs=8, heap=3.5GB]
+[INFO ][NAME][2018-08-08 16:42:39] (Slf4jLogger.java:99) info - Topology snapshot [ver=1, servers=1, clients=0, CPUs=8, heap=3.5GB]
+[INFO ][NAME][2018-08-08 16:42:39] (LocalContainerEntityManagerFactoryBean.java:361) createNativeEntityManagerFactory - Building JPA container EntityManagerFactory for persistence unit &apos;default&apos;
+[INFO ][NAME][2018-08-08 16:42:39] (LogHelper.java:31) logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+[INFO ][NAME][2018-08-08 16:42:39] (Version.java:37) logVersion - HHH000412: Hibernate Core {5.1.10.Final}
+[INFO ][NAME][2018-08-08 16:42:39] (Environment.java:213) &lt;clinit&gt; - HHH000206: hibernate.properties not found
+[INFO ][NAME][2018-08-08 16:42:39] (Environment.java:317) buildBytecodeProvider - HHH000021: Bytecode provider name : javassist
+[INFO ][NAME][2018-08-08 16:42:39] (JavaReflectionManager.java:66) &lt;clinit&gt; - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration boolean -&gt; org.hibernate.type.BooleanType@7c29adc8
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration boolean -&gt; org.hibernate.type.BooleanType@7c29adc8
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.lang.Boolean -&gt; org.hibernate.type.BooleanType@7c29adc8
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration numeric_boolean -&gt; org.hibernate.type.NumericBooleanType@41f4fe5
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration true_false -&gt; org.hibernate.type.TrueFalseType@390877d2
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration yes_no -&gt; org.hibernate.type.YesNoType@3ec2ecea
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration byte -&gt; org.hibernate.type.ByteType@338cc75f
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration byte -&gt; org.hibernate.type.ByteType@338cc75f
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.lang.Byte -&gt; org.hibernate.type.ByteType@338cc75f
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration character -&gt; org.hibernate.type.CharacterType@49c8f6e8
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration char -&gt; org.hibernate.type.CharacterType@49c8f6e8
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.lang.Character -&gt; org.hibernate.type.CharacterType@49c8f6e8
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration short -&gt; org.hibernate.type.ShortType@240f6c41
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration short -&gt; org.hibernate.type.ShortType@240f6c41
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.lang.Short -&gt; org.hibernate.type.ShortType@240f6c41
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration integer -&gt; org.hibernate.type.IntegerType@1c758545
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration int -&gt; org.hibernate.type.IntegerType@1c758545
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.lang.Integer -&gt; org.hibernate.type.IntegerType@1c758545
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration long -&gt; org.hibernate.type.LongType@2324bfe7
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration long -&gt; org.hibernate.type.LongType@2324bfe7
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.lang.Long -&gt; org.hibernate.type.LongType@2324bfe7
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration float -&gt; org.hibernate.type.FloatType@470a659f
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration float -&gt; org.hibernate.type.FloatType@470a659f
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.lang.Float -&gt; org.hibernate.type.FloatType@470a659f
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration double -&gt; org.hibernate.type.DoubleType@47447ccf
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration double -&gt; org.hibernate.type.DoubleType@47447ccf
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.lang.Double -&gt; org.hibernate.type.DoubleType@47447ccf
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration big_decimal -&gt; org.hibernate.type.BigDecimalType@73545b80
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.math.BigDecimal -&gt; org.hibernate.type.BigDecimalType@73545b80
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration big_integer -&gt; org.hibernate.type.BigIntegerType@2776015d
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.math.BigInteger -&gt; org.hibernate.type.BigIntegerType@2776015d
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration string -&gt; org.hibernate.type.StringType@327ed9f5
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.lang.String -&gt; org.hibernate.type.StringType@327ed9f5
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration nstring -&gt; org.hibernate.type.StringNVarcharType@45e22def
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration ncharacter -&gt; org.hibernate.type.CharacterNCharType@21c7208d
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration url -&gt; org.hibernate.type.UrlType@96a75da
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.net.URL -&gt; org.hibernate.type.UrlType@96a75da
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration date -&gt; org.hibernate.type.DateType@37ed010a
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.sql.Date -&gt; org.hibernate.type.DateType@37ed010a
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration time -&gt; org.hibernate.type.TimeType@701bc94e
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.sql.Time -&gt; org.hibernate.type.TimeType@701bc94e
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration timestamp -&gt; org.hibernate.type.TimestampType@1f44ddab
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.sql.Timestamp -&gt; org.hibernate.type.TimestampType@1f44ddab
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.util.Date -&gt; org.hibernate.type.TimestampType@1f44ddab
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration dbtimestamp -&gt; org.hibernate.type.DbTimestampType@4726927c
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration calendar -&gt; org.hibernate.type.CalendarType@10ef5fa0
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.util.Calendar -&gt; org.hibernate.type.CalendarType@10ef5fa0
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.util.GregorianCalendar -&gt; org.hibernate.type.CalendarType@10ef5fa0
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration calendar_date -&gt; org.hibernate.type.CalendarDateType@61dde151
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration locale -&gt; org.hibernate.type.LocaleType@719d35e8
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.util.Locale -&gt; org.hibernate.type.LocaleType@719d35e8
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration currency -&gt; org.hibernate.type.CurrencyType@736309a9
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.util.Currency -&gt; org.hibernate.type.CurrencyType@736309a9
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration timezone -&gt; org.hibernate.type.TimeZoneType@3fc05ea2
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.util.TimeZone -&gt; org.hibernate.type.TimeZoneType@3fc05ea2
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration class -&gt; org.hibernate.type.ClassType@351f2244
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.lang.Class -&gt; org.hibernate.type.ClassType@351f2244
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration uuid-binary -&gt; org.hibernate.type.UUIDBinaryType@39ad12b6
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.util.UUID -&gt; org.hibernate.type.UUIDBinaryType@39ad12b6
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration uuid-char -&gt; org.hibernate.type.UUIDCharType@3bd3d05e
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration binary -&gt; org.hibernate.type.BinaryType@459cfcca
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration byte[] -&gt; org.hibernate.type.BinaryType@459cfcca
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration [B -&gt; org.hibernate.type.BinaryType@459cfcca
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration wrapper-binary -&gt; org.hibernate.type.WrapperBinaryType@7acfb656
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration Byte[] -&gt; org.hibernate.type.WrapperBinaryType@7acfb656
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration [Ljava.lang.Byte; -&gt; org.hibernate.type.WrapperBinaryType@7acfb656
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration row_version -&gt; org.hibernate.type.RowVersionType@1416a80a
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration image -&gt; org.hibernate.type.ImageType@28f878a0
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration characters -&gt; org.hibernate.type.CharArrayType@7f5eae0f
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration char[] -&gt; org.hibernate.type.CharArrayType@7f5eae0f
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration [C -&gt; org.hibernate.type.CharArrayType@7f5eae0f
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration wrapper-characters -&gt; org.hibernate.type.CharacterArrayType@6bbe50c9
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration [Ljava.lang.Character; -&gt; org.hibernate.type.CharacterArrayType@6bbe50c9
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration Character[] -&gt; org.hibernate.type.CharacterArrayType@6bbe50c9
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration text -&gt; org.hibernate.type.TextType@20011bf
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration ntext -&gt; org.hibernate.type.NTextType@5fb65013
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration blob -&gt; org.hibernate.type.BlobType@4088741b
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.sql.Blob -&gt; org.hibernate.type.BlobType@4088741b
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration materialized_blob -&gt; org.hibernate.type.MaterializedBlobType@23706db8
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration clob -&gt; org.hibernate.type.ClobType@4dc8c0ea
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.sql.Clob -&gt; org.hibernate.type.ClobType@4dc8c0ea
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration nclob -&gt; org.hibernate.type.NClobType@228cea97
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.sql.NClob -&gt; org.hibernate.type.NClobType@228cea97
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration materialized_clob -&gt; org.hibernate.type.MaterializedClobType@782bf610
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration materialized_nclob -&gt; org.hibernate.type.MaterializedNClobType@2de50ee4
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration serializable -&gt; org.hibernate.type.SerializableType@5524b72f
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration object -&gt; org.hibernate.type.ObjectType@2650f79
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration java.lang.Object -&gt; org.hibernate.type.ObjectType@2650f79
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration imm_date -&gt; org.hibernate.type.AdaptedImmutableType@38af1bf6
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration imm_time -&gt; org.hibernate.type.AdaptedImmutableType@129bd55d
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration imm_timestamp -&gt; org.hibernate.type.AdaptedImmutableType@7be7e15
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration imm_dbtimestamp -&gt; org.hibernate.type.AdaptedImmutableType@3abfe845
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration imm_calendar -&gt; org.hibernate.type.AdaptedImmutableType@7a0f244f
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration imm_calendar_date -&gt; org.hibernate.type.AdaptedImmutableType@3672276e
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration imm_binary -&gt; org.hibernate.type.AdaptedImmutableType@4248b963
+[DEBUG][NAME][2018-08-08 16:42:39] (BasicTypeRegistry.java:136) register - Adding type registration imm_serializable -&gt; org.hibernate.type.AdaptedImmutableType@7f08caf
+[INFO ][NAME][2018-08-08 16:42:40] (Dialect.java:156) &lt;init&gt; - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+[INFO ][NAME][2018-08-08 16:42:40] (EnversServiceImpl.java:91) configure - Envers integration enabled? : true
+[DEBUG][NAME][2018-08-08 16:42:40] (BasicTypeRegistry.java:136) register - Adding type registration org.hibernate.envers.internal.entities.RevisionTypeType -&gt; org.hibernate.type.CustomType@496a31da
+[INFO ][NAME][2018-08-08 16:42:40] (UpdateTimestampsCache.java:55) &lt;init&gt; - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+[INFO ][NAME][2018-08-08 16:42:40] (StandardQueryCache.java:74) &lt;init&gt; - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+[TRACE][NAME][2018-08-08 16:42:40] (TypeFactory.java:58) injectSessionFactory - Scoping types to session factory org.hibernate.internal.SessionFactoryImpl@41ad373
+Hibernate: 
+    
+    drop table sample if exists
+Hibernate: 
+    
+    drop sequence if exists hibernate_sequence
+Hibernate: create sequence hibernate_sequence start with 1 increment by 1
+Hibernate: 
+    
+    create table sample (
+        id bigint not null,
+        name varchar(255),
+        primary key (id)
+    )
+[INFO ][NAME][2018-08-08 16:42:40] (SchemaCreatorImpl.java:485) applyImportSources - HHH000476: Executing import script &apos;org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5568c66f&apos;
+[INFO ][NAME][2018-08-08 16:42:40] (AbstractEntityManagerFactoryBean.java:393) buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit &apos;default&apos;
+[WARN ][NAME][2018-08-08 16:42:41] (AbstractApplicationContext.java:557) refresh - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;resourceHandlerMapping&apos; defined in org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method &apos;resourceHandlerMapping&apos; threw exception; nested exception is java.lang.IllegalStateException: No ServletContext set
+[INFO ][NAME][2018-08-08 16:42:41] (AbstractEntityManagerFactoryBean.java:571) destroy - Closing JPA EntityManagerFactory for persistence unit &apos;default&apos;
+[INFO ][NAME][2018-08-08 16:42:41] (SchemaDropperImpl.java:522) perform - HHH000477: Starting delayed drop of schema as part of SessionFactory shut-down&apos;
+Hibernate: 
+    
+    drop table sample if exists
+Hibernate: 
+    
+    drop sequence if exists hibernate_sequence
+[ERROR][NAME][2018-08-08 16:42:41] (TestContextManager.java:246) prepareTestInstance - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@429bd883] to prepare test instance [kr.co.uclick.configuration.SpringConfigurationTest@1e98b788]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:107)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:242)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;resourceHandlerMapping&apos; defined in org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method &apos;resourceHandlerMapping&apos; threw exception; nested exception is java.lang.IllegalStateException: No ServletContext set
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:587)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1250)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1099)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:758)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:128)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:109)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:246)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	... 31 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method &apos;resourceHandlerMapping&apos; threw exception; nested exception is java.lang.IllegalStateException: No ServletContext set
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:579)
+	... 48 common frames omitted
+Caused by: java.lang.IllegalStateException: No ServletContext set
+	at org.springframework.util.Assert.state(Assert.java:73)
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.resourceHandlerMapping(WebMvcConfigurationSupport.java:485)
+	at org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration$$EnhancerBySpringCGLIB$$2e457d5a.CGLIB$resourceHandlerMapping$27(&lt;generated&gt;)
+	at org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration$$EnhancerBySpringCGLIB$$2e457d5a$$FastClassBySpringCGLIB$$2afd9e75.invoke(&lt;generated&gt;)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:361)
+	at org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration$$EnhancerBySpringCGLIB$$2e457d5a.resourceHandlerMapping(&lt;generated&gt;)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 49 common frames omitted
+</system-out>
+    <system-err>8월 08, 2018 4:42:37 오후 java.util.logging.LogManager$RootLogger log
+심각: Failed to resolve default logging config file: config/java.util.logging.properties
+</system-err>
+  </testcase>
+</testsuite>
