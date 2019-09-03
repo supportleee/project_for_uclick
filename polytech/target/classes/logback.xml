@@ -3,6 +3,7 @@
 	<property name="LOG_PATTERN"
 		value="[%-5level][NAME][%d{yyyy-MM-dd HH:mm:ss}] \\(%F:%L\\) %M - %msg%n" />
 
+	<!-- 콘솔에 log 남김 -->
 	<appender name="STDOUT"
 		class="ch.qos.logback.core.ConsoleAppender">
 		<layout class="ch.qos.logback.classic.PatternLayout">

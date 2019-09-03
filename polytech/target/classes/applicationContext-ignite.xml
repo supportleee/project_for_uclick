@@ -11,6 +11,8 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
+	<!-- igniteSystem bean 등록 -->
+	<!-- org.apache.ignite.Ignition로부터 start() 메소드 실행 -->
 	<bean id="igniteSystem"
 		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
 		<property name="targetClass"
@@ -21,12 +23,16 @@
 		</property>
 	</bean>
 
+	<!-- start()메소드의 argument 설정 -->
 	<bean id="igniteConfiguration"
 		class="org.apache.ignite.configuration.IgniteConfiguration">
+		<!-- ignite 이름 : cafe-grid -->
 		<property name="igniteInstanceName" value="cafe-grid" />
+		<!-- ignite 로그 -->
 		<property name="gridLogger">
 			<bean class="org.apache.ignite.logger.slf4j.Slf4jLogger" />
 		</property>
+		<!-- cache 설정 -->
 		<property name="cacheConfiguration">
 			<list>
 				<!-- Configuration for update timestamps cache. -->
