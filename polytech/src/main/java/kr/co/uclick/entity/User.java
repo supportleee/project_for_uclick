@@ -41,8 +41,8 @@ public class User {
 	@Column(name="rank", length=10)
 	private String rank;
 	
-	@Column(name="reg_date", nullable=false)
-	@CreationTimestamp
+	@Column(name="reg_date")
+	@CreationTimestamp // insert시 default 값으로 timestamp 찍음
 	private Date reg_date;	
 
 	public Long getId() {
