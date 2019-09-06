@@ -32,7 +32,6 @@ public class SpringConfigurationTest {
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		User user = new User();
 		user.setName("이지원");
-		user.setCompany("회사회사");
 		//user.setReg_date(null);
 		userService.save(user);
 	}

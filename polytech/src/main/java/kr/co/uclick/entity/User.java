@@ -8,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.TableGenerator;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
@@ -18,7 +16,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @Entity
 @DynamicUpdate
 @DynamicInsert
-@TableGenerator(name="user", initialValue=1, allocationSize=1)
+@TableGenerator(name="user", initialValue=0, allocationSize=1)
 public class User {
 	
 	@Id
@@ -29,17 +27,20 @@ public class User {
 	@Column(name="name", length=20, nullable=false)
 	private String name;
 	
-	@Column(name="company", length=30, nullable=false)
-	private String company;
-	
-	@Column(name="department", length=20)
+	@Column(name="department", length=20, nullable=false)
 	private String department;
 	
-	@Column(name="team", length=20)
+	@Column(name="team", length=20, nullable=false)
 	private String team;
 	
-	@Column(name="rank", length=10)
+	@Column(name="rank", length=10, nullable=false)
 	private String rank;
+	
+	@Column(name="age", nullable=false)
+	private int age;
+	
+	@Column(name="email", nullable=false)
+	private String email;
 	
 	@Column(name="reg_date")
 	@CreationTimestamp // insert시 default 값으로 timestamp 찍음
@@ -59,14 +60,6 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getCompany() {
-		return company;
-	}
-
-	public void setCompany(String company) {
-		this.company = company;
 	}
 
 	public String getDepartment() {
@@ -91,6 +84,22 @@ public class User {
 
 	public void setRank(String rank) {
 		this.rank = rank;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Date getReg_date() {
