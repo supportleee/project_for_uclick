@@ -27,7 +27,7 @@ public class SpringConfigurationTest {
 	//SampleService sampleService;
 	UserService userService;
 
-	@Ignore
+	@Test
 	public void testSaveforInsert() {
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		User user = new User();
@@ -36,7 +36,7 @@ public class SpringConfigurationTest {
 		userService.save(user);
 	}
 
-	@Ignore
+	@Test
 	public void testFindAll() {
 		assertEquals(userService.findAll().size(), 1);
 	}

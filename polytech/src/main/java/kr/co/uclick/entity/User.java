@@ -1,5 +1,7 @@
 package kr.co.uclick.entity;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -7,15 +9,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@DynamicUpdate
-@DynamicInsert
+@Table(name="user")
 @TableGenerator(name="user", initialValue=0, allocationSize=1)
 public class User {
 	
@@ -44,7 +46,14 @@ public class User {
 	
 	@Column(name="reg_date")
 	@CreationTimestamp // insert시 default 값으로 timestamp 찍음
-	private Date reg_date;	
+	private Date reg_date;
+	
+	@Column(name="modified_date")
+	@UpdateTimestamp
+	private Date modified_date;
+	
+	@OneToMany(mappedBy = "user")
+	private Collection<Phone> phone;
 
 	public Long getId() {
 		return id;
@@ -109,4 +118,29 @@ public class User {
 	public void setReg_date(Date reg_date) {
 		this.reg_date = reg_date;
 	}
+
+	public Date getModified_date() {
+		return modified_date;
+	}
+
+	public void setModified_date(Date modified_date) {
+		this.modified_date = modified_date;
+	}
+
+	public Collection<Phone> getPhone() {
+		if(phone == null) {
+			phone = new ArrayList<Phone>();
+		}
+		return phone;
+	}
+
+	public void setPhone(Collection<Phone> phone) {
+		this.phone = phone;
+	}
+	
+	public void addPhone(Phone p) {
+		Collection<Phone> phone = getPhone();
+		phone.add(p);
+	}
+	
 }

@@ -9,6 +9,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ignite.cache.hibernate.HibernateRegionFactory;
 import org.hibernate.cfg.AvailableSettings;
 import org.hibernate.dialect.MySQL5Dialect;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,7 +17,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
+import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -33,18 +36,22 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableSpringConfigured // Spring 설정을 주입받도록 함
 // 다수의 data modules(user, phone)을 사용하기 위해 선언
 @EnableJpaRepositories(basePackages = "kr.co.uclick.repository")
+@PropertySource({"classpath:databaseConnection.properties"})
 // root-Context.xml과 같은 역할
 public class SpringConfiguration {
+	
+	@Autowired
+	private Environment env;
 	
 	@Bean // bean으로 등록하기 위한 annotation
 	@Primary // 다른 작업을 하기 전에 우선적으로 실행한다는 의미
 	// DB connection을 위한 설정을 하는 메소드
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver"); // mysql 연결 driver 설정
-		dataSource.setUrl("jdbc:mysql://3.13.15.154:3306/polytech"); // 연결할 DB 주소
-		dataSource.setUsername("root"); // DB 접속용 ID
-		dataSource.setPassword("kopo24"); // DB 접속용 PW
+		dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName")); // mysql 연결 driver 설정
+		dataSource.setUrl(env.getProperty("jdbc.url")); // 연결할 DB 주소
+		dataSource.setUsername(env.getProperty("jdbc.user")); // DB 접속용 ID
+		dataSource.setPassword(env.getProperty("jdbc.pass")); // DB 접속용 PW
 		return dataSource; // connection용 dataSource return
 	}
 
@@ -81,23 +88,23 @@ public class SpringConfiguration {
 	// hibernate 세부 설정
 	public Properties additionalProperties() {
 		Properties properties = new Properties();
-		properties.setProperty(AvailableSettings.HBM2DDL_AUTO, "update"); // Domain 변경 시 기존 테이블을 update하도록 설정
-		properties.setProperty(AvailableSettings.FORMAT_SQL, Boolean.TRUE.toString()); // SQL 정렬하기
-		properties.setProperty(AvailableSettings.SHOW_SQL, Boolean.TRUE.toString()); // SQL 보여주기
-		properties.setProperty(AvailableSettings.DIALECT, MySQL5Dialect.class.getName()); // 여러 RDBMS와 호환이 가능하도록 방언 설정
+//		properties.setProperty(AvailableSettings.HBM2DDL_AUTO,env.getProperty("hibernate.hbm2ddl.auto"));
+		properties.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto")); // Domain 변경 시 기존 테이블을 update하도록 설정
+		properties.setProperty("hibernate.format_sql", env.getProperty("hibernate.format_sql")); // SQL 정렬하기
+		properties.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql")); // SQL 보여주기
+		properties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect")); // 여러 RDBMS와 호환이 가능하도록 방언 설정
 		
-		properties.setProperty(AvailableSettings.STATEMENT_BATCH_SIZE, "1000"); // JDBC batch size를 1000으로 설정
+		properties.setProperty("hibernate.statement_batch_size", env.getProperty("hibernate.statement_batch_size")); // JDBC batch size를 1000으로 설정
 
-		properties.setProperty(AvailableSettings.USE_SECOND_LEVEL_CACHE, Boolean.TRUE.toString()); // L2 Cache를 사용하도록 설정
-		properties.setProperty(AvailableSettings.USE_QUERY_CACHE, Boolean.TRUE.toString()); // Query Cache를 사용하도록 설정
-		properties.setProperty(AvailableSettings.GENERATE_STATISTICS, Boolean.FALSE.toString()); // 통계 Collection을 사용하도록 설정
-		properties.setProperty(AvailableSettings.CACHE_REGION_FACTORY, HibernateRegionFactory.class.getName()); // L2 Cache를 사용할 region 설정
+		properties.setProperty("hibernate.use_second_level_cache", env.getProperty("hibernate.use_second_level_cache")); // L2 Cache를 사용하도록 설정
+		properties.setProperty("hibernate.use_query_cache", env.getProperty("hibernate.use_query_cache")); // Query Cache를 사용하도록 설정
+		properties.setProperty("hibernate.generate_statistics", env.getProperty("hibernate.generate_statistics")); // 통계 Collection을 사용하도록 설정
+		properties.setProperty("hibernate.cache_region_factory", env.getProperty("hibernate.cache_region_factory")); // L2 Cache를 사용할 region 설정
 
-		properties.setProperty("org.apache.ignite.hibernate.ignite_instance_name", "cafe-grid"); // ignite 이름을 cafe-grid로 지정
-		properties.setProperty("org.apache.ignite.hibernate.default_access_type", "NONSTRICT_READ_WRITE"); // L2 Cache Access 권한을 read, write 모두 줌
+		properties.setProperty("org.apache.ignite.hibernate.ignite_instance_name", env.getProperty("hibernate.ignite_instance_name")); // ignite 이름을 cafe-grid로 지정
+		properties.setProperty("org.apache.ignite.hibernate.default_access_type", env.getProperty("hibernate.default_access_type")); // L2 Cache Access 권한을 read, write 모두 줌
 
-		properties.setProperty(AvailableSettings.PHYSICAL_NAMING_STRATEGY,
-				CustomPhysicalNamingStrategyStandardImpl.class.getName()); // 이름 규칙을 CustomPhysicalNamingStrategyStandardImpl으로 함
+		properties.setProperty("hibernate.physical_naming_strategy",env.getProperty("hibernate.physical_naming_strategy")); // 이름 규칙을 CustomPhysicalNamingStrategyStandardImpl으로 함
 		return properties;
 	}
 
