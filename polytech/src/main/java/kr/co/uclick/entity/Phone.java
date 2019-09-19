@@ -1,5 +1,6 @@
 package kr.co.uclick.entity;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,9 +11,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Entity
 @Table(name="phone")
 @TableGenerator(name="phone", initialValue=0, allocationSize=1)
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Phone {
 
 	@Id
@@ -21,14 +27,14 @@ public class Phone {
 	private Long id;
 	
 	@ManyToOne(optional=false)
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="userid")
 	private User user;
 	
 	@Column(name="type", length=10, nullable=false)
 	private String type;
 	
-	@Column(name="phone_number", length=13, unique=true, nullable=false)
-	private String phone_number;
+	@Column(name="tel", length=13, unique=true, nullable=false)
+	private String tel;
 
 	public Long getId() {
 		return id;
@@ -54,12 +60,14 @@ public class Phone {
 		this.type = type;
 	}
 
-	public String getPhone_number() {
-		return phone_number;
+	public String getTel() {
+		return tel;
 	}
 
-	public void setPhone_number(String phone_number) {
-		this.phone_number = phone_number;
-	}	
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+
 	
 }

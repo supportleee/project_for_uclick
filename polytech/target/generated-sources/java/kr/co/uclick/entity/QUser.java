@@ -28,15 +28,11 @@ public class QUser extends EntityPathBase<User> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final DateTimePath<java.util.Date> modified_date = createDateTime("modified_date", java.util.Date.class);
-
     public final StringPath name = createString("name");
 
     public final CollectionPath<Phone, QPhone> phone = this.<Phone, QPhone>createCollection("phone", Phone.class, QPhone.class, PathInits.DIRECT2);
 
     public final StringPath rank = createString("rank");
-
-    public final DateTimePath<java.util.Date> reg_date = createDateTime("reg_date", java.util.Date.class);
 
     public final StringPath team = createString("team");
 

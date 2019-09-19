@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,20 +20,18 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepo;
 	
-	public void delete(User user) {
-		userRepo.delete(user);
+	public void deleteOne(Long userId) {
+		userRepo.deleteById(userId);
 	}
 	
 	@Transactional(readOnly=true)
-	public List<User> findAll() {
-		return userRepo.findAll();
+	public Page<User> findAll(int first, int size) {
+		return userRepo.findAll(PageRequest.of(first, size));
 	}
 	
 	@Transactional(readOnly = true)
-	public List<User> findUserByNameLike(String name) {
-		userRepo.findAll(QUser.user.name.eq(name));
-		userRepo.logFindByName(name);
-		return userRepo.findUserByNameLike(name);
+	public Page<User> findUserByNameContaining(String name, int first, int size) {
+		return userRepo.findUserByNameContaining(name, PageRequest.of(first, size));
 	}
 	
 	public void save(User user) {
@@ -41,4 +41,9 @@ public class UserService {
 	public Optional<User> findById(Long userId) {
 		return userRepo.findById(userId);
 	}
+	
+	public boolean existsById(Long userId) {
+		return userRepo.existsById(userId);
+	}
+	
 }

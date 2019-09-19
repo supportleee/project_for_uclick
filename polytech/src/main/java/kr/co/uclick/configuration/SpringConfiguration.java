@@ -84,27 +84,30 @@ public class SpringConfiguration {
 	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
 		return new PersistenceExceptionTranslationPostProcessor();
 	}
+	
+	
 
 	// hibernate 세부 설정
 	public Properties additionalProperties() {
 		Properties properties = new Properties();
 //		properties.setProperty(AvailableSettings.HBM2DDL_AUTO,env.getProperty("hibernate.hbm2ddl.auto"));
-		properties.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto")); // Domain 변경 시 기존 테이블을 update하도록 설정
-		properties.setProperty("hibernate.format_sql", env.getProperty("hibernate.format_sql")); // SQL 정렬하기
-		properties.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql")); // SQL 보여주기
-		properties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect")); // 여러 RDBMS와 호환이 가능하도록 방언 설정
+		properties.setProperty(AvailableSettings.HBM2DDL_AUTO, env.getProperty("hibernate.hbm2ddl.auto")); // Domain 변경 시 기존 테이블을 update하도록 설정
+		properties.setProperty(AvailableSettings.FORMAT_SQL, env.getProperty("hibernate.format_sql")); // SQL 정렬하기
+		properties.setProperty(AvailableSettings.SHOW_SQL, env.getProperty("hibernate.show_sql")); // SQL 보여주기
+		properties.setProperty(AvailableSettings.DIALECT, env.getProperty("hibernate.dialect")); // 여러 RDBMS와 호환이 가능하도록 방언 설정
 		
-		properties.setProperty("hibernate.statement_batch_size", env.getProperty("hibernate.statement_batch_size")); // JDBC batch size를 1000으로 설정
+		properties.setProperty(AvailableSettings.STATEMENT_BATCH_SIZE, env.getProperty("hibernate.statement_batch_size")); // JDBC batch size를 1000으로 설정
 
-		properties.setProperty("hibernate.use_second_level_cache", env.getProperty("hibernate.use_second_level_cache")); // L2 Cache를 사용하도록 설정
-		properties.setProperty("hibernate.use_query_cache", env.getProperty("hibernate.use_query_cache")); // Query Cache를 사용하도록 설정
-		properties.setProperty("hibernate.generate_statistics", env.getProperty("hibernate.generate_statistics")); // 통계 Collection을 사용하도록 설정
-		properties.setProperty("hibernate.cache_region_factory", env.getProperty("hibernate.cache_region_factory")); // L2 Cache를 사용할 region 설정
+		properties.setProperty(AvailableSettings.USE_SECOND_LEVEL_CACHE, env.getProperty("hibernate.use_second_level_cache")); // L2 Cache를 사용하도록 설정
+		properties.setProperty(AvailableSettings.USE_QUERY_CACHE, env.getProperty("hibernate.use_query_cache")); // Query Cache를 사용하도록 설정
+		properties.setProperty(AvailableSettings.GENERATE_STATISTICS, env.getProperty("hibernate.generate_statistics")); // 통계 Collection을 사용하도록 설정
+		properties.setProperty(AvailableSettings.CACHE_REGION_FACTORY, env.getProperty("hibernate.cache_region_factory")); // L2 Cache를 사용할 region 설정
 
 		properties.setProperty("org.apache.ignite.hibernate.ignite_instance_name", env.getProperty("hibernate.ignite_instance_name")); // ignite 이름을 cafe-grid로 지정
 		properties.setProperty("org.apache.ignite.hibernate.default_access_type", env.getProperty("hibernate.default_access_type")); // L2 Cache Access 권한을 read, write 모두 줌
 
-		properties.setProperty("hibernate.physical_naming_strategy",env.getProperty("hibernate.physical_naming_strategy")); // 이름 규칙을 CustomPhysicalNamingStrategyStandardImpl으로 함
+		properties.setProperty(AvailableSettings.PHYSICAL_NAMING_STRATEGY,env.getProperty("hibernate.physical_naming_strategy")); // 이름 규칙을 CustomPhysicalNamingStrategyStandardImpl으로 함
+		
 		return properties;
 	}
 

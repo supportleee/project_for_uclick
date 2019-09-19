@@ -2,8 +2,9 @@ package kr.co.uclick.entity;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 
+import javax.persistence.Cacheable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,12 +14,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 
 @Entity
 @Table(name="user")
 @TableGenerator(name="user", initialValue=0, allocationSize=1)
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class User {
 	
 	@Id
@@ -44,15 +48,8 @@ public class User {
 	@Column(name="email", nullable=false)
 	private String email;
 	
-	@Column(name="reg_date")
-	@CreationTimestamp // insert시 default 값으로 timestamp 찍음
-	private Date reg_date;
-	
-	@Column(name="modified_date")
-	@UpdateTimestamp
-	private Date modified_date;
-	
-	@OneToMany(mappedBy = "user")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private Collection<Phone> phone;
 
 	public Long getId() {
@@ -109,22 +106,6 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public Date getReg_date() {
-		return reg_date;
-	}
-
-	public void setReg_date(Date reg_date) {
-		this.reg_date = reg_date;
-	}
-
-	public Date getModified_date() {
-		return modified_date;
-	}
-
-	public void setModified_date(Date modified_date) {
-		this.modified_date = modified_date;
 	}
 
 	public Collection<Phone> getPhone() {

@@ -1,5 +1,8 @@
 package kr.co.uclick.configuration;
 
+import java.util.EnumSet;
+
+import javax.servlet.DispatcherType;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 
@@ -7,6 +10,7 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
 // WAS(tomcat)가 시작될 때 필요한 설정들이 시작되는 곳 = web.xml을 자바클래스 형태로 설정한 것
@@ -44,6 +48,9 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 		// servlet설정에 한글필터 추가
 		servletCxt.addFilter("characterEncodingFilter", characterEncodingFilter).addMappingForUrlPatterns(null, false,
 				"/*");
+		
+		// deleteMapping을 사용하기 위한 필터 추가
+		servletCxt.addFilter("httpMethodFilter", HiddenHttpMethodFilter.class).addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), false, "/*");
 	}
 
 }

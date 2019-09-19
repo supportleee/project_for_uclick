@@ -7,9 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import kr.co.uclick.entity.Phone;
 import kr.co.uclick.entity.User;
+import kr.co.uclick.service.PhoneService;
 import kr.co.uclick.service.UserService;
 
 @Controller
@@ -18,35 +21,87 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
-	@GetMapping(value="listUser.html")
-	public String userList(Model model) {
-		model.addAttribute("users", userService.findAll());
-		return "userList";
+
+	@Autowired
+	private PhoneService phoneService;
+
+//	@GetMapping(value="/")
+//	public String home(Model model) {
+//		logger.debug("home start");
+//		model.addAttribute("users", userService.findAll());
+//		return "user_list";
+//	}
+
+	@GetMapping(value = {"user_list","/"})
+	public String userList(Integer first, Integer size, Model model) {
+		logger.debug("user_list.jsp start");
+		if (first == null) {
+			first = 0;
+		}
+		if (size == null) {
+			size = 10;
+		}
+		model.addAttribute("users", userService.findAll(first, size));
+		return "user_list";
 	}
-	
-	@GetMapping(value="newUser.html")
-	public String newUser() {
-		return "newUser";
+
+	@GetMapping(value = "user_search")
+	public String userListSearch(String condition, String keyword, Integer first, Integer size, Model model) {
+		logger.debug("user_search.jsp start, condition : " + condition);
+
+		if (first == null) {
+			first = 0;
+		}
+		if (size == null) {
+			size = 10;
+		}
+
+		if ("name".equals(condition)) {
+			model.addAttribute("users", userService.findUserByNameContaining(keyword, first, size));
+		} else if ("tel".equals(condition)) {
+			model.addAttribute("users", phoneService.findUserByTel(keyword, first, size));
+		}
+		model.addAttribute("condition", condition);
+		model.addAttribute("keyword", keyword);
+		return "user_search";
 	}
-	
-	@GetMapping(value="editUser.html")
-	public String editUser(Long userId) {
-		userService.findById(userId);
-		return "editUser";
+
+	@GetMapping(value = "user_view/{user_id}")
+	public String userView(@PathVariable("user_id") Long userId, Model model) {
+		logger.debug("user_view.jsp start user_id = " + userId);
+		model.addAttribute("user", userService.findById(userId).get());
+		model.addAttribute("phones", phoneService.findAllByUserId(userId));
+		return "user_view";
 	}
-	
-	@PostMapping(value="saveUser.html")
-	public String saveUser(User user){
+
+	@PostMapping(value = "user_save")
+	public String saveUser(User user) {
 		logger.debug("save User");
 		userService.save(user);
-		return "redirect:userList.html";
+		return "redirect:user_view/" + user.getId();
+	}
+
+	@DeleteMapping(value = "user_delete/{user_id}")
+	public String deleteUser(@PathVariable("user_id") Long userId) {
+		logger.debug("delete User");
+		userService.deleteOne(userId);
+		return "redirect:/user_list";
 	}
 	
-	@DeleteMapping(value="deleteUser.html")
-	public String deleteUser(User user) {
-		logger.debug("delete User");
-		userService.delete(user);
-		return "redirect:userList.html";
+	@PostMapping(value = "phone_save/{user_id}")
+	public String savePhone(Phone phone, @PathVariable("user_id") Long userId) {
+		logger.debug("save Phone");
+		User user = userService.findById(userId).get();
+		phone.setUser(user);
+		phoneService.save(phone);
+		return "redirect:/user_view/" + phone.getUser().getId();
+	}
+	
+	@DeleteMapping(value = "phone_delete/{phone_id}")
+	public String deletePhone(@PathVariable("phone_id") Long phoneId) {
+		Phone phone = phoneService.findById(phoneId).get();
+		phoneService.deleteOne(phoneId);
+		return "redirect:/user_view/" + phone.getUser().getId();
+		
 	}
 }

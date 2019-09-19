@@ -1,4 +1,4 @@
-package kr.co.uclick.configuration;
+package kr.co.uclick.repository;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,16 +14,22 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.springframework.transaction.annotation.Transactional;
 
-import kr.co.uclick.entity.User;
+import kr.co.uclick.configuration.SpringConfiguration;
+import kr.co.uclick.entity.*;
+import kr.co.uclick.repository.PhoneRepository;
 import kr.co.uclick.repository.UserRepository;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = {SpringConfiguration.class})
 //@Transactional
-public class h2DBTest {
+public class UserRepositoryTest {
 	
 	@Resource
-	private UserRepository userRepository;
+	private UserRepository userRepo;
+	
+	@Resource
+	private PhoneRepository phoneRepo;
+	
 	
 	@Ignore
 	public void testSaveforInsert() {
@@ -36,33 +42,32 @@ public class h2DBTest {
 		user.setAge(24);
 		user.setEmail("aa");
 		//user.setReg_date(null);
-		userRepository.save(user);
+		userRepo.save(user);
 	}
 	
-	@Test
+	@Ignore
 	public void testFindAll() {
-		assertEquals(userRepository.findAll().size(), 2);
+		assertEquals(userRepo.findAll().size(), 2);
 	}
 	
-	@Test
+	@Ignore
 	public void testFindById() {
-		assertEquals(userRepository.findById((long)2).get().getName(), "ddd");
+		assertEquals(userRepo.findById((long)2).get().getName(), "ddd");
 	}
 	
 	@Ignore
 	public void testSaveforUpdate() {
-		User user = userRepository.findById((long)2).get();
+		User user = userRepo.findById((long)2).get();
 		
 		user.setName("ddd");
-		userRepository.save(user);
+		userRepo.save(user);
 	}
 	
 	@Test
 	public void testDelete() {
 		User user = new User();
-		user.setId((long) 3);
-		userRepository.delete(user);
+		user.setId((long) 2);
+		userRepo.delete(user);
 	}
-	
 
 }

@@ -35,6 +35,17 @@
 		<!-- cache 설정 -->
 		<property name="cacheConfiguration">
 			<list>
+				<!-- User, Phone Entity, User-phones collection L2 Cache -->
+				<bean parent="transactional-cache">
+					<property name="name" value="kr.co.uclick.entity.User" />
+				</bean>
+				<bean parent="transactional-cache">
+					<property name="name" value="kr.co.uclick.entity.Phone" />
+				</bean>
+				<bean parent="transactional-cache">
+					<property name="name" value="kr.co.uclick.entity.User.phone" />
+				</bean>
+				
 				<!-- Configuration for update timestamps cache. -->
 				<bean parent="atomic-cache">
 					<property name="name"
@@ -46,6 +57,7 @@
 					<property name="name"
 						value="org.hibernate.cache.internal.StandardQueryCache" />
 				</bean>
+				
 			</list>
 		</property>
 		<property name="discoverySpi">
