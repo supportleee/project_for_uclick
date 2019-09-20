@@ -50,7 +50,7 @@ public class PhoneService {
 		return phoneRepo.findAllByUserId(userId);
 	}
 	
-	public Page<User> findUserByTel(String tel, int first, int size) {
+	public Page<User> findUserByTel(String tel, int page, int size) {
 		List<User> users = new ArrayList<User>();
 		for(Phone phone : findPhoneByTelContaining(tel)) {
 			users.add(phone.getUser());
@@ -58,7 +58,7 @@ public class PhoneService {
 		HashSet<User> users_hash = new HashSet<User>(users);
 		ArrayList<User> users_deduplication = new ArrayList<User>(users_hash);
 		
-		Page<User> users_page = new PageImpl(users_deduplication, PageRequest.of(first, size), users_deduplication.size());
+		Page<User> users_page = new PageImpl(users_deduplication, PageRequest.of(page, size), users_deduplication.size());
 		
 		return users_page;
 	}

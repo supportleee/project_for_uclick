@@ -25,41 +25,34 @@ public class UserController {
 	@Autowired
 	private PhoneService phoneService;
 
-//	@GetMapping(value="/")
-//	public String home(Model model) {
-//		logger.debug("home start");
-//		model.addAttribute("users", userService.findAll());
-//		return "user_list";
-//	}
-
 	@GetMapping(value = {"user_list","/"})
-	public String userList(Integer first, Integer size, Model model) {
+	public String userList(Integer page, Integer size, Model model) {
 		logger.debug("user_list.jsp start");
-		if (first == null) {
-			first = 0;
+		if (page == null) {
+			page = 0;
 		}
 		if (size == null) {
 			size = 10;
 		}
-		model.addAttribute("users", userService.findAll(first, size));
+		model.addAttribute("users", userService.findAll(page, size));
 		return "user_list";
 	}
 
 	@GetMapping(value = "user_search")
-	public String userListSearch(String condition, String keyword, Integer first, Integer size, Model model) {
+	public String userListSearch(String condition, String keyword, Integer page, Integer size, Model model) {
 		logger.debug("user_search.jsp start, condition : " + condition);
 
-		if (first == null) {
-			first = 0;
+		if (page == null) {
+			page = 0;
 		}
 		if (size == null) {
 			size = 10;
 		}
 
 		if ("name".equals(condition)) {
-			model.addAttribute("users", userService.findUserByNameContaining(keyword, first, size));
+			model.addAttribute("users", userService.findUserByNameContaining(keyword, page, size));
 		} else if ("tel".equals(condition)) {
-			model.addAttribute("users", phoneService.findUserByTel(keyword, first, size));
+			model.addAttribute("users", phoneService.findUserByTel(keyword, page, size));
 		}
 		model.addAttribute("condition", condition);
 		model.addAttribute("keyword", keyword);
@@ -88,6 +81,13 @@ public class UserController {
 		return "redirect:/user_list";
 	}
 	
+	@PostMapping(value="user_delete/selected")
+	public String deleteUserSelected(String[] userIds) {
+		//userService.deleteUserByIdIn(userIds);
+		userService.deleteUserByIds(userIds);
+		return "redirect:/user_list";
+	}
+	
 	@PostMapping(value = "phone_save/{user_id}")
 	public String savePhone(Phone phone, @PathVariable("user_id") Long userId) {
 		logger.debug("save Phone");
@@ -102,6 +102,5 @@ public class UserController {
 		Phone phone = phoneService.findById(phoneId).get();
 		phoneService.deleteOne(phoneId);
 		return "redirect:/user_view/" + phone.getUser().getId();
-		
 	}
 }

@@ -30,7 +30,7 @@ public class User {
 	@Column(name="id")
 	private Long id;
 	
-	@Column(name="name", length=20, nullable=false)
+	@Column(name="name", length=6, nullable=false)
 	private String name;
 	
 	@Column(name="department", length=20, nullable=false)
@@ -45,7 +45,7 @@ public class User {
 	@Column(name="age", nullable=false)
 	private int age;
 	
-	@Column(name="email", nullable=false)
+	@Column(name="email", length=40, nullable=false)
 	private String email;
 	
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)

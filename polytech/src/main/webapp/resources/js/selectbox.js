@@ -32,7 +32,7 @@ function categoryChange(e) {
 }
 
 function sizeChange(e) {
-	location.href="?first=0&size="+e.value;
+	location.href="?page=0&size="+e.value;
 }
 
 
