@@ -6,30 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>UC 사용자 관리 모듈</title>
+<!-- bootstrap, jQuery -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- custom javascript -->
 <script src="<c:url value="/resources/js/selectbox.js"/>"></script>
+<!-- 한글 검색어 자동완성 -->
 <script src="https://unpkg.com/hangul-js" type="text/javascript"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-$(function() {	//화면 다 뜨면 시작
-	var datas;
-	$.ajax({
-		type:'get',
-		url:'/json_search',
-		dataType:"json",
-		success: function(data) {
-			datas = data;
-			$("#keyword").autocomplete({
-				source: datas
-			});
-		}
-	});
-});
-</script>
+<script src="<c:url value="/resources/js/autocomplete_korean.js"/>"></script>
 <style>
 .page-link {
 	color: black;
@@ -37,6 +25,7 @@ $(function() {	//화면 다 뜨면 시작
 </style>
 </head>
 <body>
+	<!-------------------------------------------------------------------- header -------------------------------------------------------------------->
 	<h1 class="font-weight-bold text-center my-4">
 		<a class="text-dark" href="/user_list">UC 사용자 관리 모듈</a>
 	</h1>
@@ -50,6 +39,9 @@ $(function() {	//화면 다 뜨면 시작
 		<button type="submit" class="btn btn-secondary my-1 mr-sm-2">검색</button>
 	</form>
 	<hr>
+	<!-------------------------------------------------------------------------------------------------------------------------------------------------->
+
+	<!------------------------------------------------------------------ table header ------------------------------------------------------------------>
 	<div class="row justify-content-center">
 		<div class="row col-8 p-0 justify-content-between">
 			<div class="m-0 row align-items-center">
@@ -71,8 +63,9 @@ $(function() {	//화면 다 뜨면 시작
 			</div>
 		</div>
 	</div>
+	<!---------------------------------------------------------------------------------------------------------------------------------------------------->
 
-
+	<!---------------------------------------------------------------------- table ----------------------------------------------------------------------->
 	<div class="row justify-content-center">
 		<table class="table table-hover col-8">
 			<thead class="thead-dark text-center">
@@ -90,7 +83,7 @@ $(function() {	//화면 다 뜨면 시작
 				<c:choose>
 					<c:when test="${empty users.content}">
 						<tr>
-							<td colspan="8">등록된 사용자가 없습니다.</td>
+							<td colspan="8">조회된 사용자가 없습니다.</td>
 						</tr>
 					</c:when>
 					<c:otherwise>
@@ -112,7 +105,9 @@ $(function() {	//화면 다 뜨면 시작
 			</tbody>
 		</table>
 	</div>
+	<!-------------------------------------------------------------------------------------------------------------------------------------------------------->
 
+	<!---------------------------------------------------------------------- pagination ---------------------------------------------------------------------->
 	<c:if test="${not empty users.content }">
 		<div class="row justify-content-center">
 			<nav>
@@ -142,5 +137,6 @@ $(function() {	//화면 다 뜨면 시작
 			</nav>
 		</div>
 	</c:if>
+	<!-------------------------------------------------------------------------------------------------------------------------------------------------------->
 </body>
 </html>

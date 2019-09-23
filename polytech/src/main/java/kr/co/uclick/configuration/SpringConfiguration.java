@@ -41,14 +41,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class SpringConfiguration {
 	
 	@Autowired
-	private Environment env;
+	private Environment env; // properties에 저장된 내용을 불러올 수 있는 Environment
 	
 	@Bean // bean으로 등록하기 위한 annotation
 	@Primary // 다른 작업을 하기 전에 우선적으로 실행한다는 의미
 	// DB connection을 위한 설정을 하는 메소드
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName")); // mysql 연결 driver 설정
+		dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName")); // DB 연결 driver 설정
 		dataSource.setUrl(env.getProperty("jdbc.url")); // 연결할 DB 주소
 		dataSource.setUsername(env.getProperty("jdbc.user")); // DB 접속용 ID
 		dataSource.setPassword(env.getProperty("jdbc.pass")); // DB 접속용 PW
@@ -58,7 +58,6 @@ public class SpringConfiguration {
 	@Bean
 	@DependsOn("igniteSystem") // 이 bean이 등록될 때 igniteSystem이 빈으로 등록된 후에 등록되도록 설정
 	@Primary
-
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		// entityManegerFactory를 생성하는 FactoryBean
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
@@ -90,7 +89,6 @@ public class SpringConfiguration {
 	// hibernate 세부 설정
 	public Properties additionalProperties() {
 		Properties properties = new Properties();
-//		properties.setProperty(AvailableSettings.HBM2DDL_AUTO,env.getProperty("hibernate.hbm2ddl.auto"));
 		properties.setProperty(AvailableSettings.HBM2DDL_AUTO, env.getProperty("hibernate.hbm2ddl.auto")); // Domain 변경 시 기존 테이블을 update하도록 설정
 		properties.setProperty(AvailableSettings.FORMAT_SQL, env.getProperty("hibernate.format_sql")); // SQL 정렬하기
 		properties.setProperty(AvailableSettings.SHOW_SQL, env.getProperty("hibernate.show_sql")); // SQL 보여주기

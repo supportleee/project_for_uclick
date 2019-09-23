@@ -18,19 +18,20 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name="phone")
-@TableGenerator(name="phone", initialValue=0, allocationSize=1)
+@TableGenerator(name="phone", initialValue=0, allocationSize=1) // auto_increment를 위한 설정
 @Cacheable
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE) // L2 cache 적용
 public class Phone {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE, generator="phone")
+	@GeneratedValue(strategy=GenerationType.TABLE, generator="phone") // id값 지정 방법으로 hibernate_sequences 사용
 	@Column(name="id")
 	private Long id;
 	
+	// 1:N 매핑중 N부분
 	@ManyToOne(optional=false)
 	@JoinColumn(name="userid")
-	@JsonBackReference
+	@JsonBackReference // Json으로 리턴할 때 무한루프 빠지는 것 방지
 	private User user;
 	
 	@Column(name="type", length=10, nullable=false)

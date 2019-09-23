@@ -50,7 +50,8 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 				"/*");
 		
 		// deleteMapping을 사용하기 위한 필터 추가
-		servletCxt.addFilter("httpMethodFilter", HiddenHttpMethodFilter.class).addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), false, "/*");
+		servletCxt.addFilter("httpMethodFilter", HiddenHttpMethodFilter.class)
+		.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), false, "/*");
 	}
 
 }

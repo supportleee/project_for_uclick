@@ -22,16 +22,17 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "user")
-@TableGenerator(name = "user", initialValue = 0, allocationSize = 1)
+@TableGenerator(name = "user", initialValue = 0, allocationSize = 1) // auto_increment를 위한 설정
 @Cacheable
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE) // L2 cache 적용
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "user")
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "user") // id값 지정 방법으로 hibernate_sequences 사용
 	@Column(name = "id")
 	private Long id;
 
+	// 한글만 받기위해 length를 6으로 지정
 	@Column(name = "name", length = 6, nullable = false)
 	private String name;
 
@@ -50,10 +51,11 @@ public class User {
 	@Column(name = "email", length = 40, nullable = false)
 	private String email;
 
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	@JsonManagedReference 
-	@JsonIgnore
+	
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE) // Collection cache 적용
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // 1:N 관계 중 1
+	@JsonManagedReference // JSON으로 리턴할 때 무한루프 방지
+	@JsonIgnore // JSON으로 리턴할 때 무한루프 방지
 	private Collection<Phone> phone;
 
 	public User() {

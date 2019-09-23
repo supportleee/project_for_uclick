@@ -21,6 +21,7 @@ public class PhoneRepositoryTest {
 	@Resource
 	private UserRepository userRepo;
 	
+	// 전화기 추가 테스트
 	@Ignore
 	public void testSaveforInsert() {
 		Phone phone = new Phone();
@@ -30,9 +31,5 @@ public class PhoneRepositoryTest {
 		phone.setTel("010-0000-0000");
 		phoneRepo.save(phone);
 	}
-	
-	@Test
-	public void testFindByNumber() {
-		
-	}
+
 }

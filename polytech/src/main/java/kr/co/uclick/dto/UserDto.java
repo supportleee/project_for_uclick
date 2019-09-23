@@ -10,6 +10,7 @@ import javax.validation.constraints.Size;
 
 import kr.co.uclick.entity.User;
 
+// 사용자 유효성 검사를 위한 DTO
 public class UserDto {
 	private Long id;
 

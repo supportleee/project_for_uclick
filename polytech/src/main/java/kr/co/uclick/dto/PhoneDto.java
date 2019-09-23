@@ -6,6 +6,7 @@ import javax.validation.constraints.Pattern;
 import kr.co.uclick.entity.Phone;
 import kr.co.uclick.entity.User;
 
+// 전화기 유효성 검사를 위한 DTO
 public class PhoneDto {
 	private Long id;
 	
