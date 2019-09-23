@@ -62,4 +62,24 @@ public class PhoneService {
 		
 		return users_page;
 	}
+	
+	public boolean authenticateTel(String tel, Long id) {
+		boolean result = false;
+		if(id == null) {
+			// 전화기 추가
+			if(phoneRepo.authenticateTelForInsert(tel) == 0) {
+				result = true;
+			} else {
+				result = false;
+			}
+		} else {
+			// 전화기 수정
+			if(phoneRepo.authenticateTelForUpdate(tel, id) == 0) {
+				result = true;
+			} else {
+				result = false;
+			}
+		}
+		return result;
+	}
 } 

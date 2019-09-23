@@ -14,6 +14,8 @@ import javax.persistence.TableGenerator;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="phone")
 @TableGenerator(name="phone", initialValue=0, allocationSize=1)
@@ -28,6 +30,7 @@ public class Phone {
 	
 	@ManyToOne(optional=false)
 	@JoinColumn(name="userid")
+	@JsonBackReference
 	private User user;
 	
 	@Column(name="type", length=10, nullable=false)
@@ -35,7 +38,19 @@ public class Phone {
 	
 	@Column(name="tel", length=13, unique=true, nullable=false)
 	private String tel;
-
+	
+	public Phone() {}
+	
+	public Phone(Long id, User user, String type, String tel) {
+		super();
+		if (id != null) {
+			this.id = id;
+		}
+		this.user = user;
+		this.type = type;
+		this.tel = tel;
+	}
+	
 	public Long getId() {
 		return id;
 	}

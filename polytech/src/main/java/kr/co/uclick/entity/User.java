@@ -17,40 +17,60 @@ import javax.persistence.TableGenerator;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-@Table(name="user")
-@TableGenerator(name="user", initialValue=0, allocationSize=1)
+@Table(name = "user")
+@TableGenerator(name = "user", initialValue = 0, allocationSize = 1)
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class User {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE, generator="user")
-	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "user")
+	@Column(name = "id")
 	private Long id;
-	
-	@Column(name="name", length=6, nullable=false)
+
+	@Column(name = "name", length = 6, nullable = false)
 	private String name;
-	
-	@Column(name="department", length=20, nullable=false)
+
+	@Column(name = "department", length = 20, nullable = false)
 	private String department;
-	
-	@Column(name="team", length=20, nullable=false)
+
+	@Column(name = "team", length = 20, nullable = false)
 	private String team;
-	
-	@Column(name="rank", length=10, nullable=false)
+
+	@Column(name = "rank", length = 10, nullable = false)
 	private String rank;
-	
-	@Column(name="age", nullable=false)
+
+	@Column(name = "age", nullable = false)
 	private int age;
-	
-	@Column(name="email", length=40, nullable=false)
+
+	@Column(name = "email", length = 40, nullable = false)
 	private String email;
-	
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	@JsonManagedReference 
+	@JsonIgnore
 	private Collection<Phone> phone;
+
+	public User() {
+	}
+
+	public User(Long id, String name, String department, String team, String rank, int age, String email) {
+		super();
+		if (id != null) {
+			this.id = id;
+		}
+		this.name = name;
+		this.department = department;
+		this.team = team;
+		this.rank = rank;
+		this.age = age;
+		this.email = email;
+	}
 
 	public Long getId() {
 		return id;
@@ -109,7 +129,7 @@ public class User {
 	}
 
 	public Collection<Phone> getPhone() {
-		if(phone == null) {
+		if (phone == null) {
 			phone = new ArrayList<Phone>();
 		}
 		return phone;
@@ -118,10 +138,10 @@ public class User {
 	public void setPhone(Collection<Phone> phone) {
 		this.phone = phone;
 	}
-	
+
 	public void addPhone(Phone p) {
 		Collection<Phone> phone = getPhone();
 		phone.add(p);
 	}
-	
+
 }

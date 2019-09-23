@@ -7,11 +7,34 @@
 <meta charset="UTF-8">
 <title>UC 사용자 관리 모듈</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="<c:url value="/resources/js/selectbox.js"/>"></script>
 <script src="<c:url value="/resources/js/checkbox.js"/>"></script>
+<script src="<c:url value="/resources/js/validation.js"/>"></script>
+<script src="<c:url value="/resources/js/buttonClick.js"/>"></script>
+<script src="<c:url value="/resources/js/modal.js"/>"></script>
+<script src="https://unpkg.com/hangul-js" type="text/javascript"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+// 검색어 자동완성 기능
+$(function() {	//화면 다 뜨면 시작
+	var datas;
+	$.ajax({
+		type:'get',
+		url:'/json_search',
+		dataType:"json",
+		success: function(data) {
+			datas = data;
+			$("#keyword").autocomplete({
+				source: datas
+			});
+		}
+	});
+});
+</script>
 <style>
 .page-link {
 	color: black;
@@ -26,7 +49,7 @@
 			<option value="name">이름</option>
 			<option value="tel">전화번호</option>
 		</select>
-		<input class="form-control my-1 mr-sm-2" type="text" name="keyword" required>
+		<input class="form-control my-1 mr-sm-2" type="text" name="keyword" id="keyword" required>
 		<button type="submit" class="btn btn-secondary my-1 mr-sm-2">검색</button>
 	</form>
 	<hr>
@@ -34,7 +57,7 @@
 	<div class="row justify-content-center">
 		<div class="row col-8 p-0 justify-content-between">
 			<div class="m-0 row align-items-center">
-				<button type="button" class="btn btn-secondary my-1" data-toggle="modal" data-target="#user_insertModal">사용자 등록</button>
+				<button type="button" class="btn btn-secondary my-1" data-toggle="modal" data-target="#userModal" data-type="등록" data-whatever="0">사용자 등록</button>
 			</div>
 			<div class="m-0 row align-items-center">
 				<select class="custom-select my-1 text-end" name="size" onChange="sizeChange(this)">
@@ -46,19 +69,20 @@
 		</div>
 	</div>
 	<!-- Modal -->
-	<div class="modal fade" id="user_insertModal" tabindex="-1" role="dialog" aria-labelledby="user_insertModalLabel" aria-hidden="true">
+	<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="user_insertModalLabel">사용자 등록</h5>
+					<h5 class="modal-title" id="userModalLabel">사용자 등록</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form method="post" action="user_save">
+				<form method="post" id="userForm" onsubmit="return validateUser();">
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="name" class="col-form-label">이름 :</label> <input type="text" class="form-control" id="name" name="name" maxlength="6" placeholder="2~6자의 한글로 입력하세요." pattern="[가-힣]{2,6}" required>
+							<span class="text-danger" id="name_error"></span>
 						</div>
 						<div class="form-group">
 							<label for="department" class="col-form-label">부서 :</label>
@@ -69,12 +93,14 @@
 								<option value="UC사업부">UC사업부</option>
 								<option value="경영관리부">경영관리부</option>
 							</select>
+							<span class="text-danger" id="department_error"></span>
 						</div>
 						<div class="form-group">
 							<label for="team" class="col-form-label">팀 :</label>
 							<select class="form-control" id="team" name="team" required>
 								<option value='' disabled hidden>팀을 선택하세요.</option>
 							</select>
+							<span class="text-danger" id="team_error"></span>
 						</div>
 						<div class="form-group">
 							<label for="rank" class="col-form-label">직위 :</label>
@@ -87,24 +113,27 @@
 								<option value="사원">사원</option>
 								<option value="인턴">인턴</option>
 							</select>
+							<span class="text-danger" id="rank_error"></span>
 						</div>
 						<div class="form-group">
 							<label for="age" class="col-form-label">나이 :</label> <input type="number" class="form-control" id="age" name="age" min="17" max="100" placeholder="17~100 사이의 값을 입력하세요" required>
+							<span class="text-danger" id="age_error"></span>
 						</div>
 						<div class="form-group">
 							<label for="email" class="col-form-label">이메일 :</label> <input type="text" class="form-control" id="email" name="email" maxlength="40" placeholder="xxx@xxx.xxx 형식으로 입력하세요." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+							<span class="text-danger" id="email_error"></span>
 						</div>
-
+						
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-						<button type="submit" class="btn btn-primary">등록</button>
+						<button type="submit" class="btn btn-primary"></button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-	<form method="post" action="user_delete/selected">
+	<form method="post" action="user_delete/selected" onsubmit="return deleteConfirm();">
 	<div class="row justify-content-center">
 		<table class="table table-hover col-8">
 			<thead class="thead-dark text-center">
@@ -146,14 +175,17 @@
 			</tbody>
 		</table>
 	</div>
+	<c:if test="${!empty users.content }">
 	<div class="row justify-content-center">
-		<div class="row col-8 p-0">
+		<div class="row col-8 p-0 justify-content-between">
 			<button type="submit" class="btn btn-secondary my-1">선택 삭제</button>
+			<button type="button" class="btn btn-secondary my-1" onclick="location.href='/downloadCSV'">내보내기</button>
 		</div>
 	</div>
+	</c:if>
 	</form>
 
-
+	<!--------------------------------------------------------------- pagination --------------------------------------------------------------->
 	<c:if test="${not empty users.content }">
 		<div class="row justify-content-center">
 			<nav>
@@ -183,6 +215,7 @@
 			</nav>
 		</div>
 	</c:if>
+	<!------------------------------------------------------------------------------------------------------------------------------------------>
 
 </body>
 </html>

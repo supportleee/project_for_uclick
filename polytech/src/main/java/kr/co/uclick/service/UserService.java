@@ -28,6 +28,11 @@ public class UserService {
 	}
 	
 	@Transactional(readOnly=true)
+	public List<User> findAll() {
+		return userRepo.findAll();
+	}
+	
+	@Transactional(readOnly=true)
 	public Page<User> findAll(int page, int size) {
 		return userRepo.findAll(PageRequest.of(page, size));
 	}
@@ -59,6 +64,11 @@ public class UserService {
 			userRepo.deleteById(long_userIds[i]);
 		}
 	}
+	
+	public List<String> findAllName() {
+		return userRepo.findAllName();
+	}
+	
 
 //	public void deleteUserByIdIn(String[] userIds) {
 //		Long[] long_userIds = new Long[userIds.length];

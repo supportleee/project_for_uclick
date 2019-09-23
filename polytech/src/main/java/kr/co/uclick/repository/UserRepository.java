@@ -27,4 +27,8 @@ public interface UserRepository
 	public Page<User> findUserByNameContaining(String name, Pageable pageable);
 
 	//void deleteUserByIdIn(List<Long> ids);
+	
+	@Query(value="SELECT name FROM user", nativeQuery = true)
+	public List<String> findAllName();
+	
 }
