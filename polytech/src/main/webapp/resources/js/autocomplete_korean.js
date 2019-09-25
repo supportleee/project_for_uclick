@@ -4,7 +4,7 @@ $(function() {	//화면 다 뜨면 시작
 	// 비동기 방식으로 이름 목록 json 데이터 가져오기
 	$.ajax({
 		type:'get',
-		url:'/json_search',
+		url:'json_search',
 		dataType:"json",
 		success: function(data) { // 성공 시
 			datas = data; // data 값 저장

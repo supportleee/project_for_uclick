@@ -31,5 +31,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	@Query(value = "SELECT name FROM user", nativeQuery = true)
 	public List<String> findAllName();
 	
-	// void deleteUserByIdIn(List<Long> ids);
 }

@@ -34,9 +34,10 @@ function categoryChange(e) {
 }
 
 // 페이지 당 조회 건수 조절 시 발생하는 함수
-function sizeChange(e) {
+function sizeChange(e, condition, keyword) {
 	// 해당 변수로 size값을 던져줌
-	location.href="?page=0&size="+e.value;
+	console.log("sizeChange ------ condition : "+condition +" keyword: " + keyword);
+	location.href="?page=0&size="+e.value+"&condition="+condition+"&keyword="+keyword;
 }
 
 // 사용자 조회 페이지에서 사용자 수정 modal의 select값 세팅

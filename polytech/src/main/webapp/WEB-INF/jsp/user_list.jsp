@@ -32,7 +32,7 @@
 <body>
 	<!-------------------------------------------------------------------- header -------------------------------------------------------------------->
 	<h1 class="font-weight-bold text-center my-4 text-dark">UC 사용자 관리 모듈</h1>
-	<form class="form-inline justify-content-center" method="get" action="/user_search">
+	<form class="form-inline justify-content-center" method="get" action="user_search">
 		<select class="custom-select my-1 mr-sm-2" name="condition" required>
 			<option value='' selected disabled hidden>조건</option>
 			<option value="name">이름</option>
@@ -93,7 +93,7 @@
 									</td>
 									<td>${user.id }</td>
 									<td>
-										<a href="./user_view/${user.id }">${user.name }</a>
+										<a href="user_view/${user.id }">${user.name }</a>
 									</td>
 									<td>${user.department }</td>
 									<td>${user.team }</td>
@@ -111,7 +111,7 @@
 			<div class="row justify-content-center">
 				<div class="row col-8 p-0 justify-content-between">
 					<button type="submit" class="btn btn-secondary my-1">선택 삭제</button>
-					<button type="button" class="btn btn-secondary my-1" onclick="location.href='/downloadCSV'">내보내기</button>
+					<button type="button" class="btn btn-secondary my-1" onclick="location.href='downloadCSV'">내보내기</button>
 				</div>
 			</div>
 		</c:if>
@@ -128,21 +128,37 @@
 
 				<ul class="pagination">
 					<c:if test="${users.number ne 0 }">
-						<li class="page-item"><a class="page-link" href="user_list?page=0&size=${users.size}"><span aria-hidden="true">&lt;&lt;</span></a></li>
+						<li class="page-item">
+							<a class="page-link" href="user_list?page=0&size=${users.size}"> 
+								&lt;&lt;
+							</a>
+						</li>
 					</c:if>
 					<c:if test="${firstPage >= 1 }">
-						<li class="page-item"><a class="page-link" href="user_list?page=${users.number-10 + (10-users.number%9) }&size=${users.size}"><span aria-hidden="true">&lt;</span></a></li>
+						<li class="page-item">
+							<a class="page-link" href="user_list?page=${users.number-10 + (10-users.number%9) }&size=${users.size}">
+								&lt;
+							</a>
+						</li>
 					</c:if>
 					<c:forEach var="i" begin="${(firstPage*10)+1}" end="${Math.min(totalPages, (firstPage*10)+10)}">
-						<li class="page-item"><a class="page-link <c:if test="${users.number eq i-1 }">font-weight-bold</c:if>" href="user_list?page=${i-1}&size=${users.size}">${i}</a></li>
+						<li class="page-item">
+							<a class="page-link <c:if test="${users.number eq i-1 }">font-weight-bold</c:if>" href="user_list?page=${i-1}&size=${users.size}">${i}</a>
+							</li>
 					</c:forEach>
 					<c:if test="${firstPage ne totalPage_calc }">
-						<li class="page-item"><a class="page-link" href="user_list?page=${users.number+10 - (users.number%10) }&size=${users.size}"> <span aria-hidden="true">&gt;</span>
-						</a></li>
+						<li class="page-item">
+							<a class="page-link" href="user_list?page=${users.number+10 - (users.number%10) }&size=${users.size}"> 
+								&gt;
+							</a>
+						</li>
 					</c:if>
 					<c:if test="${users.number ne totalPages-1}">
-						<li class="page-item"><a class="page-link" href="user_list?page=${totalPages-1 }&size=${users.size}"> <span aria-hidden="true">&gt;&gt;</span>
-						</a></li>
+						<li class="page-item">
+							<a class="page-link" href="user_list?page=${totalPages-1 }&size=${users.size}"> 
+								&gt;&gt;
+							</a>
+						</li>
 					</c:if>
 				</ul>
 			</nav>
@@ -160,10 +176,12 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form method="post" id="userForm" onsubmit="return validateUser();">
+				<form method="post" id="userForm" onsubmit="return validateUser('user_list');">
 					<div class="modal-body">
 						<div class="form-group">
-							<label for="name" class="col-form-label">이름 :</label> <input type="text" class="form-control" id="name" name="name" maxlength="6" placeholder="2~6자의 한글로 입력하세요." pattern="[가-힣]{2,6}" required> <span class="text-danger" id="name_error"></span>
+							<label for="name" class="col-form-label">이름 :</label> 
+							<input type="text" class="form-control" id="name" name="name" maxlength="6" placeholder="2~6자의 한글로 입력하세요." pattern="[가-힣]{2,6}" required> 
+							<span class="text-danger" id="name_error"></span>
 						</div>
 						<div class="form-group">
 							<label for="department" class="col-form-label">부서 :</label>
@@ -197,10 +215,13 @@
 							<span class="text-danger" id="rank_error"></span>
 						</div>
 						<div class="form-group">
-							<label for="age" class="col-form-label">나이 :</label> <input type="number" class="form-control" id="age" name="age" min="17" max="100" placeholder="17~100 사이의 값을 입력하세요" required> <span class="text-danger" id="age_error"></span>
+							<label for="age" class="col-form-label">나이 :</label> 
+							<input type="number" class="form-control" id="age" name="age" min="17" max="100" placeholder="17~100 사이의 값을 입력하세요" required> 
+							<span class="text-danger" id="age_error"></span>
 						</div>
 						<div class="form-group">
-							<label for="email" class="col-form-label">이메일 :</label> <input type="text" class="form-control" id="email" name="email" maxlength="40" placeholder="xxx@xxx.xxx 형식으로 입력하세요." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required> <span class="text-danger" id="email_error"></span>
+							<label for="email" class="col-form-label">이메일 :</label> 
+							<input type="text" class="form-control" id="email" name="email" maxlength="40" placeholder="xxx@xxx.xxx 형식으로 입력하세요." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required> <span class="text-danger" id="email_error"></span>
 						</div>
 
 					</div>

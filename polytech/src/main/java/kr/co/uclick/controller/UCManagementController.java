@@ -69,7 +69,7 @@ public class UCManagementController {
 	}
 
 	// 전체 사용자 목록을 CSV 파일로 만들어 다운로드함
-	@GetMapping(value = "/downloadCSV")
+	@GetMapping(value = "downloadCSV")
 	public void downloadCSV(HttpServletResponse response) throws IOException {
 		logger.debug("download CSV start");
 		
@@ -128,7 +128,7 @@ public class UCManagementController {
 	}
 
 	// 비동기 검색어 자동완성을 위한 이름목록 JSON 생성
-	@GetMapping(value = "/json_search")
+	@GetMapping(value = "json_search")
 	@ResponseBody
 	public Object jsonSearch() {
 		List<String> list = userService.findAllName();
@@ -185,7 +185,7 @@ public class UCManagementController {
 	}
 
 	// 전화기 추가/수정을 위한 유효성 검사(ajax를 이용한 비동기 방식으로 JSON 사용)
-	@PostMapping(value = "/phone_validation/{user_id}", produces = { MediaType.APPLICATION_JSON_VALUE })
+	@PostMapping(value = "phone_validation/{user_id}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
 	public Response validatePhone(@ModelAttribute @Valid PhoneDto phoneDto, BindingResult result, @PathVariable("user_id") Long userId) {
 		logger.debug(
@@ -227,7 +227,7 @@ public class UCManagementController {
 	}
 
 	// 전화기 수정 시 modal에 값 세팅을 위한 JSON
-	@PostMapping(value = "/json_phone_search")
+	@PostMapping(value = "json_phone_search")
 	@ResponseBody
 	public Object phone(String phone_id) {
 		logger.debug("phone_id : {}", phone_id);

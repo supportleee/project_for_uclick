@@ -25,7 +25,7 @@
 <body onload="onloadSelect('${user.department}', '${user.team }', '${user.rank }')">
 	<!-------------------------------------------------------------------- header -------------------------------------------------------------------->
 	<h1 class="font-weight-bold text-center my-4 text-dark">
-		<a class="text-dark" href="/user_list">UC 사용자 관리 모듈</a>
+		<a class="text-dark" href="../user_list">UC 사용자 관리 모듈</a>
 	</h1>
 	<h3 class="text-center font-weight-bold p-1 text-dark">사용자 상세 정보</h3>
 	<hr>
@@ -66,7 +66,7 @@
 						<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#userModal" data-type="수정">수정</button>
 					</td>
 					<td>
-						<form method="POST" id="deleteUserForm" action="/user_delete/${user.id}?_method=DELETE" onsubmit="return deleteConfirm();">
+						<form method="POST" id="deleteUserForm" action="../user_delete/${user.id}?_method=DELETE" onsubmit="return deleteConfirm();">
 							<button type="submit" class="btn btn-secondary">삭제</button>
 						</form>
 					</td>
@@ -116,7 +116,7 @@
 									<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#phoneModal" data-type="수정" data-whatever="${phone.id }">수정</button>
 								</td>
 								<td>
-									<form method="POST" action="/phone_delete/${phone.id}?_method=DELETE" onsubmit="return deleteConfirm();">
+									<form method="POST" action="../phone_delete/${phone.id}?_method=DELETE" onsubmit="return deleteConfirm();">
 										<button type="submit" class="btn btn-secondary">삭제</button>
 									</form>
 								</td>
@@ -140,7 +140,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form method="post" id="userForm" onsubmit="return validateUser();">
+				<form method="post" id="userForm" onsubmit="return validateUser('user_view');">
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="name" class="col-form-label">이름 :</label> <input type="text" class="form-control" id="name" name="name" maxlength="6" value="${user.name }" placeholder="2~6자의 한글로 입력하세요." pattern="[가-힣]{2,6}" required> <span class="text-danger" id="name_error"></span>

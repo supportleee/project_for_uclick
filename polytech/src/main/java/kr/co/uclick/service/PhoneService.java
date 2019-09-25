@@ -31,19 +31,25 @@ public class PhoneService {
 	}
 
 	/******* Read *******/
+	// 전화기 전체 목록 조회
+	@Transactional(readOnly = true)
+	public List<Phone> findAll() {
+		return phoneRepo.findAll();
+	}
+
 	// id로 전화기 검색
 	public Optional<Phone> findById(Long phoneId) {
 		return phoneRepo.findById(phoneId);
 	}
 
-	// 전화번호를 포함하는 전화기 검색(like 검색)
-	public List<Phone> findPhoneByTelContaining(String tel) {
-		return phoneRepo.findPhoneByTelContaining(tel);
-	}
-
 	// 사용자 id로 전화기 검색
 	public List<Phone> findAllByUserId(Long userId) {
 		return phoneRepo.findAllByUserId(userId);
+	}
+
+	// 전화번호를 포함하는 전화기 검색(like 검색)
+	public List<Phone> findPhoneByTelContaining(String tel) {
+		return phoneRepo.findPhoneByTelContaining(tel);
 	}
 
 	// 전화번호로 사용자 검색
@@ -64,12 +70,6 @@ public class PhoneService {
 				users_deduplication.size());
 
 		return users_page;
-	}
-
-	// 전화기 전체 목록 조회
-	@Transactional(readOnly = true)
-	public List<Phone> findAll() {
-		return phoneRepo.findAll();
 	}
 
 	/******* Delete *******/

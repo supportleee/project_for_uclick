@@ -21,7 +21,7 @@ $(document).on('show.bs.modal', '#phoneModal', function(event) {
 	
 	// modal 창이 열렸을 때 값 세팅해주기
 	$.ajax({
-		url : '/json_phone_search',
+		url : '../json_phone_search',
 		method : 'post',
 		data : {
 			phone_id : phone_id

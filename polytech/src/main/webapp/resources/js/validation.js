@@ -30,11 +30,16 @@ function checkNum(event) {
 
 
 //사용자 validation
-function validateUser() {
+function validateUser(url) {
 	$('span').text(''); // error 메시지 입력 란 공백으로 세팅
 	// form 값을 post방식으로 user_validation으로 전달 후 값 받아오기
-	$.ajax({
-		url : '/user_validation',
+	if(url == 'user_list') {
+		url = '/user_validation';
+	} else if(url == 'user_view') {
+		url = '../user_validation';
+	}
+ 	$.ajax({
+		url : url,
 		method : 'post',
 		data : $('#userForm').serialize(),
 		success : function(res) { // 성공적으로 받아왔을 때
@@ -57,7 +62,7 @@ function validatePhone(user_id){
 	$('span').text(''); // error 메시지 입력 란 공백으로 세팅
 	// form 값을 post방식으로 phone_validation으로 전달 후 값 받아오기
 	$.ajax({
-		url : '/phone_validation/'+user_id,
+		url : '../phone_validation/'+user_id,
 		method : 'post',
 		data : $('#phoneForm').serialize(),
 		success : function(res) { // 성공적으로 받아왔을 때

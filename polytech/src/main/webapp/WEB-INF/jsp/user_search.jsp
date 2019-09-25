@@ -8,7 +8,7 @@
 <title>UC 사용자 관리 모듈</title>
 <!-- bootstrap, jQuery -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <!-- custom javascript -->
@@ -27,15 +27,15 @@
 <body>
 	<!-------------------------------------------------------------------- header -------------------------------------------------------------------->
 	<h1 class="font-weight-bold text-center my-4">
-		<a class="text-dark" href="/user_list">UC 사용자 관리 모듈</a>
+		<a class="text-dark" href="user_list">UC 사용자 관리 모듈</a>
 	</h1>
-	<form class="form-inline justify-content-center" method="get" action="/user_search">
+	<form class="form-inline justify-content-center" method="get" action="user_search">
 		<select class="custom-select my-1 mr-sm-2" name="condition" required>
 			<option value='' selected disabled hidden>조건</option>
 			<option value="name" <c:if test="${condition eq 'name' }">selected</c:if>>이름</option>
 			<option value="tel" <c:if test="${condition eq 'tel' }">selected</c:if>>전화번호</option>
 		</select>
-		<input class="form-control my-1 mr-sm-2" type="text" name="keyword" value="${keyword }" required>
+		<input class="form-control my-1 mr-sm-2" type="text" name="keyword" id="keyword" value="${keyword }" required>
 		<button type="submit" class="btn btn-secondary my-1 mr-sm-2">검색</button>
 	</form>
 	<hr>
@@ -55,7 +55,7 @@
 				</h5>
 			</div>
 			<div class="m-0 row align-items-center">
-				<select class="custom-select my-1 text-end" name="size" onChange="sizeChange(this)">
+				<select class="custom-select my-1 text-end" name="size" onChange="sizeChange(this, '${condition }','${keyword }')">
 					<option value="5" <c:if test="${users.size eq 5 }">selected</c:if>>5건씩 보기</option>
 					<option value="10" <c:if test="${users.size eq 10 }">selected</c:if>>10건씩 보기</option>
 					<option value="15" <c:if test="${users.size eq 15 }">selected</c:if>>15건씩 보기</option>
@@ -91,7 +91,7 @@
 							<tr>
 								<td>${user.id }</td>
 								<td>
-									<a href="./user_view/${user.id }">${user.name }</a>
+									<a href="user_view/${user.id }">${user.name }</a>
 								</td>
 								<td>${user.department }</td>
 								<td>${user.team }</td>
